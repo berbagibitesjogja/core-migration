@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: docker.io/library/postgres:latest
+    container_name: pg_migration_test
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bbj_db
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - ./_data:/var/lib/postgresql:Z
+    restart: on-failure
