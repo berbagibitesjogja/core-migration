@@ -3,7 +3,7 @@ CREATE TYPE presences_status AS ENUM ('active', 'end');
 
 CREATE TABLE presences (
     id SERIAL PRIMARY KEY,
-    job_slot_id INTEGER NOT NULL REFERENCES job_slots(id),
+    job_slot_id INTEGER REFERENCES job_slots(id),
     title VARCHAR(50),
     description VARCHAR(500),
     latitude NUMERIC(9, 6) NOT NULL,

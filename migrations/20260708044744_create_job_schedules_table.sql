@@ -9,5 +9,7 @@ CREATE TABLE job_schedules (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+CREATE INDEX idx_job_schedules_sponsor_id ON job_schedules (sponsor_id);
+
 -- +goose Down
 DROP TABLE job_schedules;

@@ -4,7 +4,7 @@ CREATE TYPE sponsor_variant AS ENUM ('company', 'individual');
 CREATE TABLE sponsors (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL UNIQUE,
-    variant sponsor_variant NOT NULL DEFAULT 'individual',
+    variant sponsor_variant DEFAULT 'individual',
     address VARCHAR(500),
     email VARCHAR(255),
     phone VARCHAR(20),

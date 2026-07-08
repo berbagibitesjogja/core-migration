@@ -11,6 +11,7 @@ CREATE TABLE attendances (
 );
 
 CREATE INDEX idx_attendances_presence_id ON attendances (presence_id);
+CREATE INDEX idx_attendances_job_slot_applicant_id ON attendances (job_slot_applicant_id);
 
 -- +goose Down
 DROP TABLE attendances;

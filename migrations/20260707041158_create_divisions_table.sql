@@ -2,7 +2,8 @@
 CREATE TABLE divisions (
     id SERIAL PRIMARY KEY,
     name VARCHAR(24) NOT NULL,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 -- +goose Down

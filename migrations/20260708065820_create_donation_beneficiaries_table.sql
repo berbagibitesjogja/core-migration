@@ -10,6 +10,7 @@ CREATE TABLE donation_beneficiaries (
 );
 
 CREATE INDEX idx_donation_beneficiaries_beneficiary_id ON donation_beneficiaries (beneficiary_id);
+CREATE INDEX idx_donation_beneficiaries_donation_id ON donation_beneficiaries (donation_id);
 
 -- +goose Down
 DROP TABLE donation_beneficiaries;

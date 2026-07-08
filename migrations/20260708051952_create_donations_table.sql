@@ -18,9 +18,11 @@ CREATE TABLE donations (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX idx_donations_active_feed
-ON donations (created_at DESC)
+CREATE INDEX idx_donations_status
+ON donations (status)
 WHERE status = 'active' AND remain > 0;
+
+CREATE INDEX idx_donations_sponsor_id ON donations (sponsor_id);
 
 -- +goose Down
 DROP TABLE donations;

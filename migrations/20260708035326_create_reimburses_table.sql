@@ -11,5 +11,7 @@ CREATE TABLE reimburses (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+CREATE INDEX idx_reimburses_user_id ON reimburses (user_id);
+
 -- +goose Down
 DROP TABLE reimburses;

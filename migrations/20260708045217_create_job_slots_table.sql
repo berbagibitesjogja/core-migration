@@ -10,5 +10,7 @@ CREATE TABLE job_slots (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+CREATE INDEX idx_job_slots_job_schedule_id ON job_slots (job_schedule_id);
+
 -- +goose Down
 DROP TABLE job_slots;

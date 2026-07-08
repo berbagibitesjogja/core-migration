@@ -10,6 +10,7 @@ CREATE TABLE job_slot_divisions (
 );
 
 CREATE INDEX idx_job_slot_divisions_division_id ON job_slot_divisions (division_id);
+CREATE INDEX idx_job_slot_divisions_job_slot_id ON job_slot_divisions (job_slot_id);
 
 -- +goose Down
 DROP TABLE job_slot_divisions;
