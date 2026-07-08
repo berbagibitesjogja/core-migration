@@ -5,12 +5,14 @@ CREATE TABLE donation_beneficiaries (
     beneficiary_id INTEGER NOT NULL REFERENCES beneficiaries(id),
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-
-    CONSTRAINT unique_donation_beneficiaries UNIQUE (donation_id, beneficiary_id)
+    deleted_at TIMESTAMPTZ DEFAULT NULL
 );
 
+CREATE UNIQUE INDEX uk_donation_beneficiaries_active
+ON donation_beneficiaries (donation_id, beneficiary_id)
+WHERE deleted_at IS NULL;
+
 CREATE INDEX idx_donation_beneficiaries_beneficiary_id ON donation_beneficiaries (beneficiary_id);
-CREATE INDEX idx_donation_beneficiaries_donation_id ON donation_beneficiaries (donation_id);
 
 -- +goose Down
 DROP TABLE donation_beneficiaries;

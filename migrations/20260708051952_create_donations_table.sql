@@ -15,12 +15,13 @@ CREATE TABLE donations (
     reported BOOL NOT NULL DEFAULT FALSE,
     charity BOOL NOT NULL DEFAULT FALSE,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL
 );
 
-CREATE INDEX idx_donations_status
-ON donations (status)
-WHERE status = 'active' AND remain > 0;
+CREATE INDEX idx_donations_active_feed
+ON donations (created_at DESC)
+WHERE status = 'active' AND remain > 0 AND deleted_at IS NULL;
 
 CREATE INDEX idx_donations_sponsor_id ON donations (sponsor_id);
 

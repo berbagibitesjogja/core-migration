@@ -6,7 +6,8 @@ CREATE TABLE affiliations (
     name VARCHAR(50),
     variant affiliation_variant NOT NULL DEFAULT 'student',
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL
 );
 
 -- +goose Down

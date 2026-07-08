@@ -1,10 +1,11 @@
 -- +goose Up
 CREATE TABLE beneficiaries (
     id SERIAL PRIMARY KEY,
-    affiliation_id INTEGER NOT NULL REFERENCES affiliations(id),
+    affiliation_id INTEGER NOT NULL REFERENCES affiliations(id) ON DELETE RESTRICT,
     name VARCHAR(50),
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    deleted_at TIMESTAMPTZ DEFAULT NULL
 );
 
 CREATE INDEX idx_beneficiaries_affiliation_id ON beneficiaries (affiliation_id);
