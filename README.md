@@ -25,5 +25,10 @@ Database migration for BBJ's Core System written in raw PostgreSQL using Goose d
 - Containers: Podman
 - Text Editor: Zed Editor
 
+## To Deploy
+- Local port forwarding: `ssh -L`
+- Run goose from local machine to vps: `goose -dir migrations postgres "postgres://username:password@127.0.0.1:port/dbname?sslmode=disable" up`
+- Close port forwarding: `Ctrl + C`
+
 ---
 By BBJ Team

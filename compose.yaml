@@ -1,0 +1,13 @@
+services:
+  postgres_prod:
+    image: docker.io/library/postgres:18.4
+    container_name: core_db
+    environment:
+      POSTGRES_USER: ${PROD_DB_USER}
+      POSTGRES_PASSWORD: ${PROD_DB_PASSWORD}
+      POSTGRES_DB: ${PROD_DB_NAME}
+    ports:
+      - "127.0.0.1:${PROD_DB_PORT}:5432"
+    volumes:
+      - ./core_db:/var/lib/postgresql
+    restart: always
