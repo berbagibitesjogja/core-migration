@@ -1,3 +1,5 @@
+# This Makefile is for testing only and not yet have production features.
+
 TEST_DIR = test
 MIGRATIONS_DIR = migrations
 CONTAINER_NAME = pg_migration_test

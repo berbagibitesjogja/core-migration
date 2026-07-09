@@ -30,5 +30,13 @@ Database migration for BBJ's Core System written in raw PostgreSQL using Goose d
 - Run goose from local machine to vps: `goose -dir migrations postgres "postgres://username:password@127.0.0.1:port/dbname?sslmode=disable" up`
 - Close port forwarding: `Ctrl + C`
 
+## To Test
+- Run `make run` to initialize PostgreSQL container, wait until psql is initialized
+- Run `make migrate` to migrate the files from `migrations/` directory
+
+## To Seed
+- Run `go build ./cmd/seed`
+- Then run the binary `./seed`
+
 ---
 By BBJ Team
